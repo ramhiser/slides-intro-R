@@ -10,6 +10,10 @@ output:
 css: styles.css
 ---
 
+## Slides: Where to Get Them?
+
+http://github.com/ramhiser/slides-intro-R
+
 # Before We Talk about R
 # Let's Talk about the Future
 
