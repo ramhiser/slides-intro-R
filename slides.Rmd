@@ -1,0 +1,220 @@
+---
+title: Introduction to R
+author: John A. Ramey | BlackLocus
+date: October 10, 2014
+output:
+  ioslides_presentation:
+    widescreen: true
+    fig_width: 8
+    fig_height: 5
+css: styles.css
+---
+
+# Before We Talk about R
+# Let's Talk about the Future
+
+## Famous Quote about the Future
+
+> The spread of computers and the Internet will put jobs in two categories: People who tell computers what to do, and people who are told by computers what to do.
+
+[Marc Andreessen](http://usatoday30.usatoday.com/money/business/story/2012/09/16/jobs-fight-haves-vs-the-have-nots/57778406/1)
+
+## Computers and Data Analysis
+
+- The majority of statistical methods can be applied with one line of code
+
+- Our value is knowing which **single line of code** to write
+
+- If that single line of code does not exist, we can make it happen
+
+- First, an example
+
+## Simple Example - Iris Data Set
+
+- GOAL: Group the `r nrow(iris)` observations into groups
+
+```{r head_iris}
+head(iris)
+```
+
+
+## Simple Example - Iris Data Set
+
+- GOAL: Group the `r nrow(iris)` observations into groups
+
+```{r summary_iris}
+summary(iris)
+```
+
+## Simple Example - Iris Data Set
+
+```{r pairs_iris}
+x <- subset(iris, select=-Species)
+pairs(x)
+```
+
+## Simple Example - Iris Data Set
+
+```{r kmeans_iris_3}
+kmeans_out <- kmeans(x, centers=3)
+pairs(x, col=kmeans_out$cluster)
+```
+
+## Simple Example - Iris Data Set
+
+```{r kmeans_iris_10}
+kmeans_out <- kmeans(x, centers=10)
+pairs(x, col=kmeans_out$cluster)
+```
+
+## Simple Example - Iris Data Set
+
+- Without any knowledge about **K-means**, you can **cluster** the iris data set into groups
+ 
+- Question: How do you know if the results are any good?
+
+- **One line of code** may be a researcher's life's work
+
+- If you want people to use the techniques you develop, you should provide them with the **one line of code**
+
+- The simpler, the better
+
+# The Future of Data Analysis
+
+## The Future of Data Analysis
+
+[Tukey (1962)](http://projecteuclid.org/euclid.aoms/1177704711) sounds like he is describing our future.
+
+> Some would say that one should not automate such procedures of examination, that one should encourage the study of the data. (Which is somehow discouraged by automation?) To this view there are at least three strong counter-arguments:
+
+
+## Counter Argument #1
+
+> Most data analysis is going to be done by people who are not sophisticated data analysts and who have very limited time; if you do not provide them tools the data will be even less studied. Properly automated tools are the easiest to use for a man with a computer.
+
+## Counter Argument #2
+
+> If sophisticated data analysts are to gain in depth and power, they must have both the time and the stimulation to try out _new_ procedures of analysis; hence the _known_ procedures must be made easy for them to apply as possible. Again automation is called for.
+
+## Counter Argument #3
+
+> If we are to study and intercompare procedures, it will be much easier if the procedures have been fully specified, as must happen if the process of being made routine and automatizable.
+
+## Automating Data Analysis
+
+- Data analysis can mostly be automated
+
+- Many models can be fit to a data set. Select the best!
+
+- It is unwise to ignore exploring a data set
+
+- [The Automatic Statistician](http://www.automaticstatistician.com/)
+
+# So Why R?
+
+## So Why R?
+
+- R is a powerful engine that enables interactive and automated data analysis
+
+- Hundreds of statistical methods and algorithms are available for **free** on [CRAN](http://cran.r-project.org/web/packages/)
+
+- R can be extremely useful to facilitate learning various topics in statistics!
+
+- R does have a bit of a learning curve and a few gotchas
+
+# Getting Started with R
+
+## Download R
+
+- http://www.r-project.org/
+
+- Click **CRAN** on the left
+
+- Scroll down to USA.
+
+- Download and install R.
+
+## RStudio
+
+- http://www.rstudio.com
+
+- Simply put, use RStudio.
+
+## The Basics
+
+- http://tryr.codeschool.com/
+
+- Excellent online resource to learn R basics.
+
+- Let's go through it.
+
+# Code Readability
+
+## Code Readability
+
+- The most important thing to keep in mind when coding is readability.
+
+- You are writing code for three people: yourself, other people, and yourself in 6 months.
+
+- http://r-pkgs.had.co.nz/style.html
+
+# Some Starter Projects
+
+## Shiny
+
+- http://shiny.rstudio.com/
+
+- Create your own web app with R
+
+- Extremely useful for exploring a data set and for learning
+
+- To install `shiny`, run
+
+```{r install_shiny, eval=FALSE}
+install.packages("shiny", dependencies=TRUE)
+```
+
+## Kernel Density Estimation
+
+- Code is in `shiny-kde` folder
+
+- To launch the app, run the following code:
+
+```{r shiny_kde, eval=FALSE}
+library(shiny)
+runApp("shiny-kde")
+```
+
+## Central Limit Theorem
+
+- Code is in `shiny-clt` folder
+
+- To launch the app, run the following code:
+
+```{r shiny_clt, eval=FALSE}
+runApp("shiny-clt")
+```
+
+# Miscellaneous
+
+## Additional Topics
+
+- knitr / Rmarkdown
+
+- ggplot/ggvis
+
+- dplyr / tidyr
+
+- Maximum Likelihood Estimation
+
+- Bootstrapping and Monte Carlo Simulation
+
+- Bayes!
+
+- Write your own R Packages
+
+## Helpful Links
+
+- http://adv-r.had.co.nz/
+- http://r-pkgs.had.co.nz/
+
